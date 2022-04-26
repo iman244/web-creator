@@ -34,7 +34,7 @@ const attachData = async () => {
 
     let DataWebPreview = ""
 
-    post.forEach(element => {
+    post.sort(function(a,b){return a.index.split("-")[0] - b.index.split("-")[0]}).forEach(element => {
 
         DataWebPreview += documentBuilder(element)
 
