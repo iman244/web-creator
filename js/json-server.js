@@ -34,11 +34,7 @@ const attachData = async () => {
 
     let DataWebPreview = ""
 
-<<<<<<< HEAD
     post.sort(function(a,b){return a.index.split("-")[0] - b.index.split("-")[0]}).forEach(element => {
-=======
-    post.forEach(element => {
->>>>>>> bd7ef78a68dce3a7528ecb64e37440cfaf742f29
 
         DataWebPreview += documentBuilder(element)
 
