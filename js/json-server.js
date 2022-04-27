@@ -1,13 +1,14 @@
-// We define documentBuilder() that can convert nested tags in ../res-data/data.json to html document.
+// We define documentBuilder() that can build nested tags from ../res-data/data.json.
 
 
-function documentBuilder(element) {
-
+function documentBuilder(element, post) {
+    console.log(element)
+    console.log(post)
     let document = "";
     let innerDocument = "";
 
     if(element.tag) {
-        if(Array.isArray(element.child)){element.child.forEach(element => {innerDocument += documentBuilder(element)});}
+        if(Array.isArray(element.child)){element.child.sort(function(a,b){return a.siblingIndex - b.siblingIndex}).forEach(element => {innerDocument += documentBuilder(post[element.id - 1],post)});}
         else{innerDocument += element.child;}   
     
             document += `<${element.tag} ${element.attribute}>${innerDocument}</${element.tag}>`
@@ -32,11 +33,17 @@ const attachData = async () => {
     const res = await fetch(uri);
     const post = await res.json();
 
+    post.sort(function(a,b){return a.id - b.id})
+
     let DataWebPreview = ""
 
-    post.sort(function(a,b){return a.index.split("-")[0] - b.index.split("-")[0]}).forEach(element => {
+    let roots = [];
 
-        DataWebPreview += documentBuilder(element)
+    post.forEach(element => {if(element.parent === 0){roots.push(element)}})
+
+    roots.sort(function(a,b){return a.siblingIndex - b.siblingIndex}).forEach(element => {
+
+        DataWebPreview += documentBuilder(element, post)
 
     });
 
