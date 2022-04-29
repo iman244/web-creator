@@ -1,40 +1,54 @@
 {
-    "HTMLtags":[
+  "HTMLtags": [
+    {
+      "id": 1,
+      "parent": 0,
+      "siblingIndex": 1,
+      "child": [
         {
-            "id"    : 1,
-            "parent": 0,
-            "siblingIndex" : 1,
-            "child" : [{"id": 2, "siblingIndex": 1},{"id": 4, "siblingIndex": 2}],
-            "index" : "1",
-            "tag"   : "div",
-            "attribute" : ""
+          "id": 2,
+          "siblingIndex": 1
         },
         {
-            "id"    : 3,
-            "parent": 2,
-            "siblingIndex" : 1,
-            "child" : "I am paragraph 1",
-            "index" : "1-2-3",
-            "tag"   : "",
-            "attribute" : ""
-        },
-        {
-            "id"    : 2,
-            "parent": 1,
-            "siblingIndex" : 1,
-            "child" : [{"id": 3, "siblingIndex": 1}],
-            "index" : "1-2",
-            "tag"   : "h2",
-            "attribute" : ""
-        },
-        {
-            "id"    : 4,
-            "parent": 1,
-            "siblingIndex" : 2,
-            "child" : "I am paragraph 2",
-            "index" : "1-2",
-            "tag"   : "",
-            "attribute" : ""
+          "id": 4,
+          "siblingIndex": 2
         }
-    ]
+      ],
+      "index": "1",
+      "tag": "div",
+      "attribute": ""
+    },
+    {
+      "id": 3,
+      "parent": 2,
+      "siblingIndex": 1,
+      "child": "I am paragraph 1",
+      "index": "1-2-3",
+      "tag": "",
+      "attribute": ""
+    },
+    {
+      "id": 2,
+      "parent": 1,
+      "siblingIndex": 1,
+      "child": [
+        {
+          "id": 3,
+          "siblingIndex": 1
+        }
+      ],
+      "index": "1-2",
+      "tag": "h2",
+      "attribute": ""
+    },
+    {
+      "id": 4,
+      "parent": 1,
+      "siblingIndex": 2,
+      "child": "I am paragraph 2",
+      "index": "1-2",
+      "tag": "",
+      "attribute": ""
+    }
+  ]
 }

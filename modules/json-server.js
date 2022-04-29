@@ -2,8 +2,7 @@
 
 
 function documentBuilder(element, post) {
-    console.log(element)
-    console.log(post)
+
     let document = "";
     let innerDocument = "";
 
@@ -24,7 +23,7 @@ function documentBuilder(element, post) {
 }
 
 
-const attachData = async () => {
+export const attachData = async () => {
 
     const webPreview = document.getElementById("web-preview")
 
@@ -49,5 +48,3 @@ const attachData = async () => {
 
     webPreview.innerHTML = DataWebPreview;
 }
-
-window.addEventListener('DOMContentLoaded', () => attachData())
