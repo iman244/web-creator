@@ -3,7 +3,7 @@
 // we manually add 1 to lengthP to update its value in adding time. then
 // we update length value.
 
-import {attachData} from "./json-server.js"
+import {jsonServer_attachData} from "./json-server.js"
 
 async function postTag (tag) {
 
@@ -13,7 +13,7 @@ async function postTag (tag) {
 
 }
 
-export function addP() {
+export function UI_addP() {
     
     let lengthP = document.querySelectorAll('p').length; // we must think of do we need both lengthP and document.getElementById("web-preview").childElementCount?
 
@@ -30,5 +30,5 @@ export function addP() {
 
     lengthP = document.querySelectorAll('p').length
 
-    attachData();
+    jsonServer_attachData();
 }

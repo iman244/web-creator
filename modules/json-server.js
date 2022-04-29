@@ -23,7 +23,7 @@ function documentBuilder(element, post) {
 }
 
 
-export const attachData = async () => {
+export const jsonServer_attachData = async () => {
 
     const webPreview = document.getElementById("web-preview")
 
