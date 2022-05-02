@@ -47,7 +47,7 @@
       "siblingIndex": 2,
       "child": "I am paragraph 2",
       "index": "1-2",
-      "tag": "",
+      "tag": "h6",
       "attribute": ""
     },
     {
@@ -67,6 +67,24 @@
       "tag": "p",
       "attribute": "",
       "id": 6
+    },
+    {
+      "parent": 0,
+      "siblingIndex": 4,
+      "child": "new P, 4",
+      "index": "",
+      "tag": "p",
+      "attribute": "",
+      "id": 7
+    },
+    {
+      "parent": 0,
+      "siblingIndex": 5,
+      "child": "new P, 4",
+      "index": "",
+      "tag": "p",
+      "attribute": "",
+      "id": 8
     }
   ]
 }
