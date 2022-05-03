@@ -5,3 +5,7 @@
 #web-preview {
     background-color: gainsboro;
 }
+
+.selected {
+    border: 1px dotted gray;
+}
