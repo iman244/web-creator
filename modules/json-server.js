@@ -48,5 +48,5 @@ export const jsonServer_attachData = async (_callback) => {
 
     webPreview.innerHTML = DataWebPreview;
 
-    _callback()
+    _callback.forEach(callback => callback.task())
 }
