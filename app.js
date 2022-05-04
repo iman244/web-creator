@@ -6,5 +6,5 @@ import { callbacks } from "./modules/callback.js"
 window.addEventListener('DOMContentLoaded', () => jsonServer_attachData(callbacks))
 
 // add functionality to add p button (cmd-butt-p)
-var cmdButtP = document.getElementById('cmd-butt-p');
-cmdButtP.addEventListener("click", UI_addP);
+export var UI_cmdButtP = document.getElementById('cmd-butt-p');
+UI_cmdButtP.addEventListener("click", UI_addP);
