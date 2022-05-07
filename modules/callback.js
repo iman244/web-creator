@@ -1,5 +1,5 @@
 import { UX_Load } from "./UX.js";
-import { Speech_Load } from "./speech.js";
+import { Speech_Load } from "./UI/UI_speech.js";
 
 export let callbacks = []
 

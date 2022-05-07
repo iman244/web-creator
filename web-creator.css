@@ -1,9 +1,19 @@
 #cmd-butt {
     background-color: gainsboro;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
 
 #web-preview {
     background-color: gainsboro;
+}
+
+.speech-is-running {
+    background-color: rgba(57, 183, 57, 0.435);
+    border-color: rgba(57, 183, 57, 0.435);
 }
 
 .selected {
