@@ -1,5 +1,6 @@
-import { UI_cmdButtP } from "../app.js";
+import { UI_cmdButtP } from "../../app.js";
 
+const UI_Speech = document.getElementById("UI_Speech");
 
 var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
 var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList;
@@ -29,6 +30,8 @@ Speech_addP.onresult = function (event) {
 
 // run speech; it will be run as a callback in jsonServer_attachData
 export function Speech_Load() {
-    Speech_addP.start()
-    console.log("Speech Loaded")
+    UI_Speech.addEventListener('click', function () {
+        if (UI_Speech.classList.contains("speech-is-running")) { Speech_addP.start() }
+        else { Speech_addP.stop() }
+    })
 }
