@@ -1,5 +1,20 @@
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+#UI-information-div {
+    background-color: gainsboro;
+
+    width: 100%;
+    margin-bottom: 5px;
+}
+
 #cmd-butt {
     background-color: gainsboro;
+
+    width: 100%;
+    margin-bottom: 5px;
 
     display: flex;
     flex-direction: row;
@@ -9,6 +24,9 @@
 
 #web-preview {
     background-color: gainsboro;
+
+    width: 100%;
+    margin-bottom: 5px;
 }
 
 .speech-is-running {
@@ -16,6 +34,21 @@
     border-color: rgba(57, 183, 57, 0.435);
 }
 
+/*
+
+Property Class
+
+*/
+
+.input-margin {
+    margin: 5px;
+}
+
+/*
+
+UX Class
+
+*/
 .selected {
     border: 1px dotted gray;
 }
