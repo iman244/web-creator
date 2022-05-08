@@ -1,7 +1,7 @@
 {
   "HTMLtags": [
     {
-      "webPreview_innerHTML": "<p>new Pragraph Element 1</p><p>new Pragraph Element 2</p><p>new Pragraph Element 3</p><p>new Pragraph Element 4</p><p>new Pragraph Element 5</p><p>new Pragraph Element 6</p><p>new Pragraph Element 7</p>",
+      "webPreview_innerHTML": "<p id=\"P_1\">new Pragraph Element id = P_1</p><p id=\"P_2\">new Pragraph Element id = P_2</p><p id=\"P_3\">new Pragraph Element id = P_3</p>",
       "id": 1
     }
   ]
