@@ -1,5 +1,5 @@
-import { UX_Load } from "./UX.js";
-import { Speech_Load } from "./UI/UI_speech.js";
+import { USER_CSS_Load } from "./USER/USER_css.js";
+import { UX_Load } from "./UX/UX.js";
 
 export let callbacks = []
 
@@ -7,7 +7,8 @@ export let callbacks = []
 class callback { constructor(task, queue) { this.task = task, this.queue = queue } addQueue() { callbacks.push(this) } }
 
 // add your callback here
-const UX_Load_c = new callback(UX_Load, 0); UX_Load_c.addQueue();
-const Speech_Load_c = new callback(Speech_Load, 1); Speech_Load_c.addQueue();
+const USER_CSS_Load_c = new callback(USER_CSS_Load, 200); USER_CSS_Load_c.addQueue();
+const UX_Load_c = new callback(UX_Load, 500); UX_Load_c.addQueue();
 
-callbacks.sort((a, b) => { return a - b })
+
+callbacks.sort((a, b) => { return a.queue - b.queue });

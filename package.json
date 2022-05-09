@@ -1,6 +1,5 @@
 {
   "dependencies": {
-    "dom-to-json": "^0.0.4",
     "json-server": "^0.17.0"
   }
 }
