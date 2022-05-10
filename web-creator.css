@@ -3,7 +3,7 @@ body {
     flex-direction: column;
 }
 
-#UI-information-div {
+#UI-elementInformation-div {
     background-color: gainsboro;
 
     width: 100%;
@@ -34,21 +34,20 @@ body {
     border-color: rgba(57, 183, 57, 0.435);
 }
 
+
 /*
-
 Property Class
-
 */
 
 .input-margin {
     margin: 5px;
 }
 
+
 /*
-
 UX Class
-
 */
+
 .selected {
     border: 1px dotted gray;
 }

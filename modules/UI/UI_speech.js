@@ -1,37 +1,52 @@
-import { UI_cmdButtP } from "../../app.js";
+/*
+export --> app.js
+*/
 
-const UI_Speech = document.getElementById("UI_Speech");
 
+import { HTML_addElement_P } from "../../app.js";
+import { HTML_Speech_Button } from "../../app.js";
+
+
+/*
+Read me
+
+We say that we need SpeechRecognition. Then we define our grammar.
+Then make instance of SpeechRecognition and another object for .grammar.
+Then we config our object. UI_Speech_Load will make button#UI_Speech_Load
+work. Result will handle in a switch.
+*/
+
+// say that we want Speech Recognition
 var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
 var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList;
 var SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEvent;
 
-var Speech_grammar_addP_text = '#JSGF V1.0; grammar addP; public <addP> = add p'
+var Speech_grammar_addElement_P_text = '#JSGF V1.0; grammar addP; public <HTML_addElement_P> = add p'
 
-var Speech_addP = new SpeechRecognition()
-var Speach_grammar_addP = new SpeechGrammarList(); Speach_grammar_addP.addFromString(Speech_grammar_addP_text, 1);
+var Speech_addElement_P = new SpeechRecognition()
+var Speach_grammar_addElement_P = new SpeechGrammarList(); Speach_grammar_addElement_P.addFromString(Speech_grammar_addElement_P_text, 1);
 
-// config Speech_addP
-Speech_addP.grammars = Speach_grammar_addP;
-Speech_addP.continuous = false;
-Speech_addP.lang = 'en-US';
-Speech_addP.interimResults = false;
-Speech_addP.maxAlternatives = 1;
+// config Speech_addElement_P
+Speech_addElement_P.grammars = Speach_grammar_addElement_P;
+Speech_addElement_P.continuous = false;
+Speech_addElement_P.lang = 'en-US';
+Speech_addElement_P.interimResults = false;
+Speech_addElement_P.maxAlternatives = 1;
+
+
+// run speech; it will be run as a callback in jsonServer_attachData
+export function UI_Speech_Load() {
+    event.target.classList.toggle("speech-is-running");
+    if (HTML_Speech_Button.classList.contains("speech-is-running")) { Speech_addElement_P.start() }
+    else { Speech_addElement_P.stop() }
+}
 
 // manage result
-Speech_addP.onresult = function (event) {
+Speech_addElement_P.onresult = function () {
     var result = event.results[0][0].transcript;
     console.log("before switch " + result)
     switch (result) {
         case "add p":
-            UI_cmdButtP.click()
+            HTML_addElement_P.click()
     }
-}
-
-// run speech; it will be run as a callback in jsonServer_attachData
-export function Speech_Load() {
-    UI_Speech.addEventListener('click', function () {
-        if (UI_Speech.classList.contains("speech-is-running")) { Speech_addP.start() }
-        else { Speech_addP.stop() }
-    })
 }
