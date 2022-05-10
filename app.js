@@ -30,3 +30,16 @@ UI_elementInformation_Load()
 
 // Load data to web-preview and then UX_Load will be execute (_callback of jsonServer_attachData)
 window.addEventListener('DOMContentLoaded', () => jsonServer_loadData(callbacks))
+
+/*
+
+        {
+          "cssText": "#P_1 { color: red; }"
+        },
+        {
+          "cssText": "#P_2 { color: green; }"
+        },
+        {
+          "cssText": "#P_3 { color: yellow; }"
+        }
+*/

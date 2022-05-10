@@ -3,9 +3,8 @@ export --> app.js
 */
 
 
-import { F_UI_elementInformation_updateInformation } from "../Functionality/F_UI_information.js";
-import { F_UI_elementInformation_colorInput } from "../Functionality/F_UI_information.js";
-
+import { UI_CSSOM_colorInput } from "./UI_CSSOM_Manipulation.js";
+import { USER_CSS } from "../USER/USER_css.js";
 
 /*
 Read me
@@ -43,6 +42,25 @@ export function UI_elementInformation_Load() {
     UI_information_form.appendChild(UI_information_colorLabel);
     UI_information_form.appendChild(UI_information_colorInput);
 
-    UI_information_form.addEventListener('select', F_UI_elementInformation_updateInformation)
-    UI_information_colorInput.addEventListener('change', F_UI_elementInformation_colorInput)
+    UI_information_form.addEventListener('select', UI_elementInformation_updateInformation)
+    UI_information_colorInput.addEventListener('change', UI_CSSOM_colorInput)
+}
+
+
+function UI_elementInformation_updateInformation() {
+
+    if (document.querySelectorAll(".selected")[0]) {
+
+        const selected = document.querySelectorAll(".selected")[0];
+        const UI_elementInformation_form = document.getElementById('UI-elementInformation-form');
+
+        Array.from(UI_elementInformation_form.elements).forEach(element => {
+            let StyleName = element.name;
+            let value;
+            Array.from(USER_CSS.cssRules).forEach(element => {
+                if (element.selectorText == `#${selected.id}`) { value = element.style[StyleName] };
+            })
+            element.value = value;
+        })
+    }
 }

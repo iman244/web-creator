@@ -1,7 +1,29 @@
 {
   "HTMLtags": [
     {
-      "webPreview_innerHTML": "<p id=\"P_1\">new Pragraph Element id = P_1</p><p id=\"P_2\">new Pragraph Element id = P_2</p><p id=\"P_3\">new Pragraph Element id = P_3</p>",
+      "webPreview_innerHTML": "<p id=\"P_1\" class=\"\">new Pragraph Element id = P_1</p><p id=\"P_2\" class=\"\">new Pragraph Element id = P_2</p><p id=\"P_3\" class=\"\">new Pragraph Element id = P_3</p><p id=\"P_4\" class=\"\">new Pragraph Element id = P_4</p><p id=\"P_5\" class=\"\">new Pragraph Element id = P_5</p><p id=\"P_6\" class=\"\">new Pragraph Element id = P_6</p><p id=\"P_7\" class=\"\">new Pragraph Element id = P_7</p><p id=\"P_8\" class=\"\">new Pragraph Element id = P_8</p>",
+      "id": 1
+    }
+  ],
+  "CSSrules": [
+    {
+      "CSSrules_List": [
+        {
+          "cssText": "#P_1 { color: orange; }"
+        },
+        {
+          "cssText": "#P_3 { color: green; }"
+        },
+        {
+          "cssText": "#P_4 { color: orange; }"
+        },
+        {
+          "cssText": "#P_6 { color: purple; }"
+        },
+        {
+          "cssText": "#P_8 { color: pink; }"
+        }
+      ],
       "id": 1
     }
   ]
