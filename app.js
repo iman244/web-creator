@@ -4,7 +4,8 @@ All roads lead to ROME!
 
 import { UI_TEST_Load } from "./modules/test.js"
 import { jsonServer_loadData } from "./modules/json-server/json-server-load.js";
-import { UI_addElement_P } from "./modules/UI/UI_DOM_Manipulation.js";
+import { UI_addElement_div } from "./modules/UI/UI_DOM_Manipulation.js";
+import { UI_addElement_p } from "./modules/UI/UI_DOM_Manipulation.js";
 import { callbacks } from "./modules/callback.js"
 import { jsonServer_saveData } from "./modules/json-server/json-server-save.js";
 import { UI_Speech_Load } from "./modules/UI/UI_speech.js";
@@ -21,7 +22,8 @@ is loaded.
 
 
 // add functionality to add p button (cmd-butt-p)
-export let HTML_addElement_P = document.getElementById('UI_addElement_P'); HTML_addElement_P.addEventListener('click', UI_addElement_P);
+let HTML_addElement_div = document.getElementById('UI_addElement_div'); HTML_addElement_div.addEventListener('click', UI_addElement_div)
+export let HTML_addElement_P = document.getElementById('UI_addElement_p'); HTML_addElement_P.addEventListener('click', UI_addElement_p);
 let HTML_jsonServer_saveData = document.getElementById('jsonServer_saveData'); HTML_jsonServer_saveData.addEventListener('click', jsonServer_saveData);
 let HTML_Test_Load = document.getElementById('UI_TEST_Load'); HTML_Test_Load.addEventListener('click', UI_TEST_Load);
 export let HTML_Speech_Button = document.getElementById('UI_Speech_Load'); HTML_Speech_Button.addEventListener('click', UI_Speech_Load);
