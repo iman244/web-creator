@@ -22,7 +22,7 @@ is loaded.
 
 
 // add functionality to add p button (cmd-butt-p)
-let HTML_addElement_div = document.getElementById('UI_addElement_div'); HTML_addElement_div.addEventListener('click', UI_addElement_div)
+let HTML_addElement_div = document.getElementById('UI_addElement_div'); HTML_addElement_div.addEventListener('click', UI_addElement_div);
 export let HTML_addElement_P = document.getElementById('UI_addElement_p'); HTML_addElement_P.addEventListener('click', UI_addElement_p);
 let HTML_jsonServer_saveData = document.getElementById('jsonServer_saveData'); HTML_jsonServer_saveData.addEventListener('click', jsonServer_saveData);
 let HTML_Test_Load = document.getElementById('UI_TEST_Load'); HTML_Test_Load.addEventListener('click', UI_TEST_Load);

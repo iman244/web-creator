@@ -51,3 +51,7 @@ UX Class
 .selected {
     border: 1px dotted gray;
 }
+
+.selected_hard {
+    border: 1px solid gray;
+}

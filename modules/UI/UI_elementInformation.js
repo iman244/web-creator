@@ -42,8 +42,8 @@ export function UI_elementInformation_Load() {
     UI_information_form.appendChild(UI_information_colorLabel);
     UI_information_form.appendChild(UI_information_colorInput);
 
-    UI_information_form.addEventListener('select', UI_elementInformation_updateInformation)
-    UI_information_colorInput.addEventListener('change', UI_CSSOM_colorInput)
+    UI_information_form.addEventListener('select', UI_elementInformation_updateInformation);
+    UI_information_colorInput.addEventListener('change', UI_CSSOM_colorInput);
 }
 
 

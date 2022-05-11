@@ -21,16 +21,21 @@ We also dispatch event in case of atleast one element was selected.
 */
 
 
+const webPreview = document.querySelectorAll("#web-preview")[0];
+
+
 export function UX_Load() {
 
-    // selecting elements in web-preview
-    const webPreview = document.querySelectorAll("#web-preview")[0];
-
-    webPreview.childNodes.forEach(element => element.addEventListener('click', UX_selecting))
+    webPreview.childNodes.forEach(element => {
+        element.addEventListener('click', UX_selecting);
+        element.addEventListener('dblclick', UX_selectingHard);
+    })
 }
 
 export function UX_Load_indv(element) {
+
     element.addEventListener('click', UX_selecting)
+    element.addEventListener('dblclick', UX_selectingHard)
 }
 
 
@@ -40,7 +45,25 @@ function UX_selecting() {
     const UI_elementInformation_form = document.getElementById('UI-elementInformation-form');
 
     if (selected && !event.target.classList.contains("selected")) { selected.forEach(element => element.classList.toggle("selected")) };
+
+    // function core
     event.target.classList.toggle("selected");
+
     selected = document.querySelectorAll(".selected");
     if (selected) { UI_elementInformation_form.dispatchEvent(Event_select); }
+}
+
+
+function UX_selectingHard() {
+
+    let selected_hard = document.querySelectorAll(".selected_hard");
+    const UI_elementInformation_form = document.getElementById('UI-elementInformation-form');
+
+    if (selected_hard && !event.target.classList.contains("selected_hard")) { selected_hard.forEach(element => element.classList.toggle("selected_hard")) };
+
+    // function core
+    event.target.classList.toggle("selected_hard");
+
+    selected_hard = document.querySelectorAll(".selected_hard");
+    if (selected_hard) { UI_elementInformation_form.dispatchEvent(Event_select); }
 }
