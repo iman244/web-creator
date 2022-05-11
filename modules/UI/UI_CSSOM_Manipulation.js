@@ -26,9 +26,6 @@ export function UI_CSSOM_colorInput() {
 
         const selected = document.getElementsByClassName('selected')[0]
         const selected_id = selected.id;
-        const UI_elementInformation_form = document.getElementById('UI-elementInformation-form');
-
-        console.dir(UI_elementInformation_form.elements.color)
 
         let CSSrule_color_Exist = false;
         Array.from(USER_CSS.cssRules).forEach(element => {

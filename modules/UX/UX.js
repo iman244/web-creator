@@ -34,20 +34,24 @@ export function UX_Load() {
 
 export function UX_Load_indv(element) {
 
-    element.addEventListener('click', UX_selecting)
-    element.addEventListener('dblclick', UX_selectingHard)
+    element.addEventListener('click', UX_selecting);
+    element.addEventListener('dblclick', UX_selectingHard);
 }
 
 
 function UX_selecting() {
 
     let selected = document.querySelectorAll(".selected");
+    let selected_hard = document.querySelectorAll(".selected_hard");
     const UI_elementInformation_form = document.getElementById('UI-elementInformation-form');
 
+    // removing previous selected elements
+    if (selected_hard.length) { selected_hard.forEach(element => element.classList.toggle("selected_hard")) };
     if (selected && !event.target.classList.contains("selected")) { selected.forEach(element => element.classList.toggle("selected")) };
 
     // function core
     event.target.classList.toggle("selected");
+    console.dir(event)
 
     selected = document.querySelectorAll(".selected");
     if (selected) { UI_elementInformation_form.dispatchEvent(Event_select); }
@@ -56,9 +60,12 @@ function UX_selecting() {
 
 function UX_selectingHard() {
 
+    let selected = document.querySelectorAll(".selected");
     let selected_hard = document.querySelectorAll(".selected_hard");
     const UI_elementInformation_form = document.getElementById('UI-elementInformation-form');
 
+    // removing previous selected elements
+    if (selected.length) { selected.forEach(element => element.classList.toggle("selected")) };
     if (selected_hard && !event.target.classList.contains("selected_hard")) { selected_hard.forEach(element => element.classList.toggle("selected_hard")) };
 
     // function core

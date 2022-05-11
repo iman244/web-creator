@@ -9,32 +9,38 @@ import { UX_Load_indv } from "../UX/UX.js"
 /*
 Read me
 
-we are adding functionality to button#UI_addElement_P to add a paragraph
+we are adding functionality to buttons that adding element to document
 in div#web-preview.
 */
 
 let webPreview = document.getElementById('web-preview');
 
 
-export function UI_addElement_div() {
+export function UI_addHTMLElement(HTMLElement) {
 
-    let newDIV = document.createElement('div');
-    newDIV.id = newElement_ID("div");
-    newDIV.innerText = `new Div Element id = ${newDIV.id}`
-    webPreview.appendChild(newDIV);
-    UX_Load_indv(newDIV);
-}
+    // function core
+    let newElement = document.createElement(HTMLElement);
 
+    newElement.id = newElement_ID(HTMLElement);
+    newElement.innerText = `new ${HTMLElement} Element id = ${newElement.id}`;
 
-
-
-export function UI_addElement_p() {
-
-    let newP = document.createElement("p");
-    newP.id = newElement_ID("p");
-    newP.innerText = `new Pragraph Element id = ${newP.id}`;
-    webPreview.appendChild(newP);
-    UX_Load_indv(newP);
+    // !! if parent element have addEvenetLisetener it will applied to its children too. Thats why UX_Load_indv is not added in selected_hard.
+    let selected = document.querySelectorAll(".selected");
+    let selected_hard = document.querySelectorAll(".selected_hard");
+    if (selected.length) {
+        // function core II
+        selected[0].after(newElement);
+        UX_Load_indv(newElement);
+    }
+    else if (selected_hard.length) {
+        // function core II
+        selected_hard[0].appendChild(newElement);
+    }
+    else {
+        // function core II
+        webPreview.appendChild(newElement);
+        UX_Load_indv(newElement);
+    }
 }
 
 
@@ -48,6 +54,8 @@ function newElement_ID(HTMLElement) {
         // if USER didn't changed the ID
         if (element.id.substring(0, HTMLElement_length + 1) == HTMLElement + "_") {
             if (IDnumber <= Number(element.id.substring(HTMLElement_length + 1))) {
+
+                // function core
                 IDnumber = Number(element.id.substring(HTMLElement_length + 1));
             }
         }

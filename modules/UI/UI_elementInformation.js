@@ -23,13 +23,13 @@ export function UI_elementInformation_Load() {
     const UI_elementInformation_div = document.getElementById("UI-elementInformation-div");
 
     // build form
-    let UI_information_form = document.createElement("form");
+    let UI_elementInformation_form = document.createElement("form");
 
     // config form
-    UI_information_form.id = "UI-elementInformation-form";
+    UI_elementInformation_form.id = "UI-elementInformation-form";
 
     // append form
-    UI_elementInformation_div.appendChild(UI_information_form);
+    UI_elementInformation_div.appendChild(UI_elementInformation_form);
 
 
     // add items to form
@@ -39,10 +39,10 @@ export function UI_elementInformation_Load() {
     UI_information_colorLabel.for = "color"; UI_information_colorLabel.innerText = "color";
     UI_information_colorInput.name = "color"; UI_information_colorInput.className = "input-margin"
 
-    UI_information_form.appendChild(UI_information_colorLabel);
-    UI_information_form.appendChild(UI_information_colorInput);
+    UI_elementInformation_form.appendChild(UI_information_colorLabel);
+    UI_elementInformation_form.appendChild(UI_information_colorInput);
 
-    UI_information_form.addEventListener('select', UI_elementInformation_updateInformation);
+    UI_elementInformation_form.addEventListener('select', UI_elementInformation_updateInformation);
     UI_information_colorInput.addEventListener('change', UI_CSSOM_colorInput);
 }
 
