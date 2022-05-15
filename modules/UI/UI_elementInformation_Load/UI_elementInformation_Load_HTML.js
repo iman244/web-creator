@@ -40,7 +40,7 @@ export function UI_elementInformation_HTML_Load() {
     addFormItem(UI_elementInformation_form_HTML, "tabindex", "number", transferHTMLValue);
 
     addFormItem(UI_elementInformation_form_HTML, "hidden", "checkbox", transferHTMLValue);
-    addFormItem(UI_elementInformation_form_HTML, "contenteditable", "checkbox", transferHTMLValue);
+    addFormItem(UI_elementInformation_form_HTML, "contentEditable", "checkbox", transferHTMLValue);
     addFormItem(UI_elementInformation_form_HTML, "spellcheck", "checkbox", transferHTMLValue);
     addFormItem(UI_elementInformation_form_HTML, "translate", "checkbox", transferHTMLValue);
 

@@ -102,6 +102,8 @@ export function UI_elementInformation_updateInformation(formName) {
                     else if (element.type == "checkbox") {
 
                         // function core
+                        console.log(name)
+                        console.log(selected[name])
                         value = selected[name];
                         element.checked = value; // expected value: true | false
                     }
@@ -128,7 +130,7 @@ export function addFormItem(form, item, type, transferValue) {
     form.appendChild(formItemLable);
     form.appendChild(formItem);
 
-    formItem.addEventListener('change', () => { transferValue(item) });
+    formItem.addEventListener('change', () => { transferValue(item, type) });
 }
 
 
@@ -137,12 +139,26 @@ export -->
                 UI_elementInformation_Load_HTML
 */
 
-export function transferHTMLValue(item) {
+export function transferHTMLValue(item, type) {
     let selected = document.getElementsByClassName('selected')[0];
-    if (!item == "style") {
+    console.log(item)
+    console.log(type != "checkbox")
+    console.log(item != "style" & type != "checkbox")
+    if (item != "style" & type != "checkbox") {
+        console.log(event.target.value)
         selected[item] = event.target.value;
     }
-    else {
+    else if (type == "checkbox") {
+        switch (event.target.value) {
+            case "on":
+                selected[item] = true;
+                break;
+            case "off":
+                selected[item] = false;
+                break;
+        }
+    }
+    else if (item == "style") {
         selected.style.cssText = event.target.value;
     }
 }
