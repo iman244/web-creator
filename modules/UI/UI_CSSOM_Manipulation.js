@@ -1,5 +1,5 @@
 /*
-export --> UI_elementInformation.js 
+export --> UI_elementInformation_Load_CSS.js 
 */
 
 
@@ -9,12 +9,7 @@ import { USER_CSS } from "../USER/USER_css.js";
 /*
 Read me
 
-F_UI_information_updateInformation
-    If any element was selected it will be run. It will run for every attributes
-    in UI_information_form and look at its corsponding style in USER_css.js
-    to update its form input.
-
-F_UI_information_colorInput
+UI_CSSOM_colorInput
     If atleast one element was selected it will be run. It will insert a rule for 
     color to USER_css.
 */

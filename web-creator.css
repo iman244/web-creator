@@ -3,7 +3,7 @@ body {
     flex-direction: column;
 }
 
-#UI-elementInformation-div {
+#UI_elementInformation_div {
     background-color: gainsboro;
 
     width: 100%;
@@ -38,6 +38,10 @@ body {
 /*
 Property Class
 */
+
+.dont_show {
+    display: none;
+}
 
 .input-margin {
     margin: 5px;

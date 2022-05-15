@@ -8,7 +8,7 @@ import { UI_addHTMLElement } from "./modules/UI/UI_DOM_Manipulation.js";
 import { callbacks } from "./modules/callback.js"
 import { jsonServer_saveData } from "./modules/json-server/json-server-save.js";
 import { UI_Speech_Load } from "./modules/UI/UI_speech.js";
-import { UI_elementInformation_Load } from "./modules/UI/UI_elementInformation.js";
+import { UI_elementInformation_Load } from "./modules/UI/UI_elementInformation_Load/UI_elementInformation_Load.js";
 
 /*
 Read me

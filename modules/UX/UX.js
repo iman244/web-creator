@@ -43,7 +43,8 @@ function UX_selecting() {
 
     let selected = document.querySelectorAll(".selected");
     let selected_hard = document.querySelectorAll(".selected_hard");
-    const UI_elementInformation_form = document.getElementById('UI-elementInformation-form');
+    const UI_elementInformation_form_HTML = document.getElementById('UI_elementInformation_form_HTML');
+    const UI_elementInformation_form_CSS = document.getElementById('UI_elementInformation_form_CSS');
 
     // removing previous selected elements
     if (selected_hard.length) { selected_hard.forEach(element => element.classList.toggle("selected_hard")) };
@@ -51,10 +52,9 @@ function UX_selecting() {
 
     // function core
     event.target.classList.toggle("selected");
-    console.dir(event)
 
     selected = document.querySelectorAll(".selected");
-    if (selected) { UI_elementInformation_form.dispatchEvent(Event_select); }
+    if (selected) { UI_elementInformation_form_HTML.dispatchEvent(Event_select); UI_elementInformation_form_CSS.dispatchEvent(Event_select); }
 }
 
 
@@ -72,5 +72,5 @@ function UX_selectingHard() {
     event.target.classList.toggle("selected_hard");
 
     selected_hard = document.querySelectorAll(".selected_hard");
-    if (selected_hard) { UI_elementInformation_form.dispatchEvent(Event_select); }
+    if (selected_hard) { UI_elementInformation_form_HTML.dispatchEvent(Event_select); UI_elementInformation_form_CSS.dispatchEvent(Event_select); }
 }
