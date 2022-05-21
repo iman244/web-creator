@@ -3,11 +3,23 @@ body {
     flex-direction: column;
 }
 
-#UI_elementInformation_div {
+#UI_elementInformation_section {
     background-color: gainsboro;
+
+    display: flex;
+    flex-direction: column;
 
     width: 100%;
     margin-bottom: 5px;
+}
+
+.UI_elementInformation_form {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto;
+    column-gap: 20px;
+
+    justify-content: space-between;
+    align-items: center;
 }
 
 #cmd-butt {
@@ -34,6 +46,15 @@ body {
     border-color: rgba(57, 183, 57, 0.435);
 }
 
+#modal_customize_CSS {
+    display: none;
+    z-index: 1;
+
+    padding-top: 100px;
+
+    width: 100%;
+    height: 100%;
+}
 
 /*
 Property Class
@@ -43,10 +64,18 @@ Property Class
     display: none;
 }
 
-.input-margin {
+.adm-input-margin {
     margin: 5px;
 }
 
+.adm-input-label {
+    font-weight: 700;
+}
+
+.adm-input-text,
+.adm-input-number {
+    width: 75px;
+}
 
 /*
 UX Class

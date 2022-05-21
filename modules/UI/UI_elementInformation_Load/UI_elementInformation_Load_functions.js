@@ -16,28 +16,28 @@ Read me
 f to show selected form attributes
 */
 
-export function UI_elementInformation_button_fShow() {
+export function UI_elementInformation_buttons_fShow() {
 
-    let UI_elementInformation_form_HTML = document.getElementById("UI_elementInformation_form_HTML");
-    let UI_elementInformation_form_CSS = document.getElementById("UI_elementInformation_form_CSS");
+    let UI_elementInformation_divform_HTML = document.getElementById("UI_elementInformation_divform_HTML");
+    let UI_elementInformation_divform_CSS = document.getElementById("UI_elementInformation_divform_CSS");
 
     switch (event.target.innerText) {
 
         case "HTML":
-            if (UI_elementInformation_form_HTML.classList.contains("dont_show")) {
+            if (UI_elementInformation_divform_HTML.classList.contains("dont_show")) {
 
                 // function core
-                UI_elementInformation_form_HTML.classList.toggle("dont_show");
-                UI_elementInformation_form_CSS.classList.toggle("dont_show");
+                UI_elementInformation_divform_HTML.classList.toggle("dont_show");
+                UI_elementInformation_divform_CSS.classList.toggle("dont_show");
             };
             break;
 
         case "CSS":
-            if (UI_elementInformation_form_CSS.classList.contains("dont_show")) {
+            if (UI_elementInformation_divform_CSS.classList.contains("dont_show")) {
 
                 // function core
-                UI_elementInformation_form_CSS.classList.toggle("dont_show");
-                UI_elementInformation_form_HTML.classList.toggle("dont_show");
+                UI_elementInformation_divform_CSS.classList.toggle("dont_show");
+                UI_elementInformation_divform_HTML.classList.toggle("dont_show");
             };
             break;
     }
@@ -62,9 +62,9 @@ import { USER_CSS } from "../../USER/USER_css.js";
 
 export function UI_elementInformation_updateInformation(formName) {
 
-    if (document.querySelectorAll(".selected")[0]) {
+    if (document.querySelectorAll(".selected")[0] || document.querySelectorAll('.selected_hard')[0]) {
 
-        const selected = document.querySelectorAll(".selected")[0];
+        const selected = document.querySelectorAll(".selected")[0] || document.querySelectorAll('.selected_hard')[0];
         const UI_elementInformation_form = document.getElementById(`UI_elementInformation_form_${formName}`);
 
         Array.from(UI_elementInformation_form.elements).forEach(element => {
@@ -81,7 +81,13 @@ export function UI_elementInformation_updateInformation(formName) {
                             value = element.style[name]
                         };
                     })
-                    element.value = value;
+                    if (element.type != "radio") {
+                        element.value = value;
+                    }
+                    else {
+                        element.value == value ? element.checked = true : element.checked = false;
+                    }
+
                     break;
 
                 case "HTML":
@@ -99,11 +105,14 @@ export function UI_elementInformation_updateInformation(formName) {
                             element.value = value; // expected value: css style
                         }
                     }
+
+                    else if (element.type == "radio") {
+                        element.value == selected[name] ? element.checked = true : element.checked = false;
+                    }
+
                     else if (element.type == "checkbox") {
 
                         // function core
-                        console.log(name)
-                        console.log(selected[name])
                         value = selected[name];
                         element.checked = value; // expected value: true | false
                     }
@@ -120,17 +129,37 @@ export -->
                 UI_elementInformation_Load_HTML
 */
 
-export function addFormItem(form, item, type, transferValue) {
-    let formItemLable = document.createElement("label");
-    let formItem = document.createElement("input"); formItem.type = type;
+import { attributes_object } from "./attributes_object.js";
 
-    formItemLable.for = item; formItemLable.innerText = item;
-    formItem.name = item; formItem.classList.add("input-margin");
+export function addFormItem(HTMLorCSS, attribute, type, transferValue) {
 
-    form.appendChild(formItemLable);
-    form.appendChild(formItem);
+    let form = document.getElementById(`UI_elementInformation_form_${HTMLorCSS}`);
 
-    formItem.addEventListener('change', () => { transferValue(item, type) });
+    let div = document.createElement("div");
+    div.id = `UI_elementInformation_form_${HTMLorCSS}_${attribute}`
+    let form_Attribute_Lable = document.createElement("label"); form_Attribute_Lable.innerText = attribute + ": "; form_Attribute_Lable.classList.add("adm-input-label");
+    div.appendChild(form_Attribute_Lable);
+
+    attributes_object[HTMLorCSS][attribute].forEach(element => {
+
+        if (element) {
+            let form_AttributeElement_Lable = document.createElement("label");
+            form_AttributeElement_Lable.for = attribute; form_AttributeElement_Lable.innerText = element;
+            div.appendChild(form_AttributeElement_Lable);
+        }
+
+        let form_AttributeElement = document.createElement("input"); form_AttributeElement.type = type;
+
+        form_AttributeElement.name = attribute; form_AttributeElement.value = element;
+
+        form_AttributeElement.classList.add("adm-input-margin", `adm-input-${type}`);
+        form_AttributeElement.addEventListener('change', () => { transferValue(attribute, type) });
+
+        div.appendChild(form_AttributeElement);
+    })
+
+    form.appendChild(div);
+
 }
 
 
@@ -140,12 +169,8 @@ export -->
 */
 
 export function transferHTMLValue(item, type) {
-    let selected = document.getElementsByClassName('selected')[0];
-    console.log(item)
-    console.log(type != "checkbox")
-    console.log(item != "style" & type != "checkbox")
+    let selected = document.querySelectorAll('.selected')[0] || document.querySelectorAll('.selected_hard')[0];
     if (item != "style" & type != "checkbox") {
-        console.log(event.target.value)
         selected[item] = event.target.value;
     }
     else if (type == "checkbox") {

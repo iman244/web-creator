@@ -5,7 +5,7 @@ export --> app.js
 
 import { UI_elementInformation_HTML_Load } from "./UI_elementInformation_Load_HTML.js";
 import { UI_elementInformation_CSS_Load } from "./UI_elementInformation_Load_CSS.js";
-import { UI_elementInformation_button_fShow } from "./UI_elementInformation_Load_functions.js";
+import { UI_elementInformation_buttons_fShow } from "./UI_elementInformation_Load_functions.js";
 
 
 /*
@@ -27,9 +27,9 @@ export function UI_elementInformation_Load() {
 
 
     // add buttons for showing HTML or CSS attributes functionality
-    let UI_elementInformation_button_CSS = document.getElementById("UI_elementInformation_button_CSS");
-    let UI_elementInformation_button_HTML = document.getElementById("UI_elementInformation_button_HTML");
+    let UI_elementInformation_button_CSS = document.getElementById("UI_elementInformation_buttons_CSS");
+    let UI_elementInformation_button_HTML = document.getElementById("UI_elementInformation_buttons_HTML");
 
-    UI_elementInformation_button_CSS.addEventListener('click', UI_elementInformation_button_fShow);
-    UI_elementInformation_button_HTML.addEventListener('click', UI_elementInformation_button_fShow);
+    UI_elementInformation_button_CSS.addEventListener('click', UI_elementInformation_buttons_fShow);
+    UI_elementInformation_button_HTML.addEventListener('click', UI_elementInformation_buttons_fShow);
 }

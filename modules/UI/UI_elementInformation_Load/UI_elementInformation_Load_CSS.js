@@ -3,7 +3,8 @@ export --> UI_elementInformation_Load
 */
 
 
-import { UI_CSSOM_colorInput } from "../UI_CSSOM_Manipulation.js";
+import { addFormItem } from "./UI_elementInformation_Load_functions.js";
+import { UI_CSSOM } from "../UI_CSSOM_Manipulation.js";
 import { UI_elementInformation_updateInformation } from "./UI_elementInformation_Load_functions.js";
 
 
@@ -16,28 +17,35 @@ building CSS form to modify CSS attributes
 
 export function UI_elementInformation_CSS_Load() {
 
-    const UI_elementInformation_div = document.getElementById("UI_elementInformation_div");
+    const UI_elementInformation_forms = document.getElementById("UI_elementInformation_forms");
 
     // build CSS form
+    let UI_elementInformation_divform_CSS = document.createElement("div");
     let UI_elementInformation_form_CSS = document.createElement("form");
+
+    UI_elementInformation_divform_CSS.appendChild(UI_elementInformation_form_CSS)
+
 
     // config CSS form
     UI_elementInformation_form_CSS.id = "UI_elementInformation_form_CSS";
-    UI_elementInformation_form_CSS.classList.add("dont_show");
+    UI_elementInformation_form_CSS.classList.add("UI_elementInformation_form");
+
+    UI_elementInformation_divform_CSS.id = "UI_elementInformation_divform_CSS";
+
 
     // append CSS form
-    UI_elementInformation_div.appendChild(UI_elementInformation_form_CSS);
+    UI_elementInformation_forms.appendChild(UI_elementInformation_divform_CSS);
 
     // add items to CSS form
-    let UI_elementInformation_CSS_colorLabel = document.createElement("label");
-    let UI_elementInformation_CSS_colorInput = document.createElement("input");
+    addFormItem("CSS", "color", "text", UI_CSSOM);
+    addFormItem("CSS", "text-align", "radio", UI_CSSOM);
+    addFormItem("CSS", "text-decoration-line", "text", UI_CSSOM)
 
-    UI_elementInformation_CSS_colorLabel.for = "color"; UI_elementInformation_CSS_colorLabel.innerText = "color";
-    UI_elementInformation_CSS_colorInput.name = "color"; UI_elementInformation_CSS_colorInput.className = "input-margin";
+    /*
+    other attributes needed to add
 
-    UI_elementInformation_form_CSS.appendChild(UI_elementInformation_CSS_colorLabel);
-    UI_elementInformation_form_CSS.appendChild(UI_elementInformation_CSS_colorInput);
+    addFormItem("CSS", "vertical-align", "radio", UI_CSSOM);
+    */
 
-    UI_elementInformation_form_CSS.addEventListener('select', () => { UI_elementInformation_updateInformation('CSS') });
-    UI_elementInformation_CSS_colorInput.addEventListener('change', UI_CSSOM_colorInput);
+    UI_elementInformation_form_CSS.addEventListener('select', () => { UI_elementInformation_updateInformation('CSS'); });
 }
