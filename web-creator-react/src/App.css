@@ -1,0 +1,16 @@
+html,
+body,
+#root {
+    height: 100%;
+    margin: 0;
+}
+
+.App {
+    height: 100%;
+    padding: 20px;
+}
+
+#USER_document_iframe {
+    height: 100%;
+    width: 100%;
+}
