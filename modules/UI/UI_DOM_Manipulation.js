@@ -9,32 +9,57 @@ import { UX_Load_indv } from "../UX/UX.js"
 /*
 Read me
 
-we are adding functionality to button#UI_addElement_P to add a paragraph
+we are adding functionality to buttons that adding element to document
 in div#web-preview.
 */
 
+let webPreview = document.getElementById('web-preview');
 
-export function UI_addElement_P() {
 
-    let webPreview = document.getElementById('web-preview')
+export function UI_addHTMLElement(HTMLElement) {
 
-    let newP = document.createElement("p")
-    newP.id = newP_ID()
-    newP.innerText = `new Pragraph Element id = ${newP.id}`
-    webPreview.appendChild(newP)
-    UX_Load_indv(newP);
+    // function core
+    let newElement = document.createElement(HTMLElement);
+
+    newElement.id = newElement_ID(HTMLElement);
+    newElement.innerText = `new ${HTMLElement} Element id = ${newElement.id}`;
+
+    // !! if parent element have addEvenetLisetener it will applied to its children too. Thats why UX_Load_indv is not added in selected_hard.
+    let selected = document.querySelectorAll(".selected");
+    let selected_hard = document.querySelectorAll(".selected_hard");
+    if (selected.length) {
+        // function core II
+        selected[0].after(newElement);
+        UX_Load_indv(newElement);
+    }
+    else if (selected_hard.length) {
+        // function core II
+        selected_hard[0].appendChild(newElement);
+    }
+    else {
+        // function core II
+        webPreview.appendChild(newElement);
+        UX_Load_indv(newElement);
+    }
 }
 
 
-function newP_ID() {
-    var ID = 0;
-    document.querySelectorAll('p').forEach(element => {
+function newElement_ID(HTMLElement) {
+
+    var ID;
+    var IDnumber = 0;
+    let HTMLElement_length = HTMLElement.length;
+
+    document.querySelectorAll(HTMLElement).forEach(element => {
         // if USER didn't changed the ID
-        if (element.id.substring(0, 2) == 'P_') {
-            if (ID < Number(element.id.substring(2))) {
-                ID = Number(element.id.substring(2));
+        if (element.id.substring(0, HTMLElement_length + 1) == HTMLElement + "_") {
+            if (IDnumber <= Number(element.id.substring(HTMLElement_length + 1))) {
+
+                // function core
+                IDnumber = Number(element.id.substring(HTMLElement_length + 1));
             }
         }
     });
-    return `P_${ID + 1}`;
+    ID = HTMLElement + "_" + (IDnumber + 1);
+    return ID;
 }

@@ -1,7 +1,7 @@
 {
   "HTMLtags": [
     {
-      "webPreview_innerHTML": "<p id=\"P_1\" class=\"\">new Pragraph Element id = P_1</p><p id=\"P_2\" class=\"\">new Pragraph Element id = P_2</p><p id=\"P_3\" class=\"\">new Pragraph Element id = P_3</p><p id=\"P_4\" class=\"\">new Pragraph Element id = P_4</p><p id=\"P_5\" class=\"\">new Pragraph Element id = P_5</p><p id=\"P_6\" class=\"\">new Pragraph Element id = P_6</p><p id=\"P_7\" class=\"\">new Pragraph Element id = P_7</p><p id=\"P_8\" class=\"\">new Pragraph Element id = P_8</p>",
+      "webPreview_innerHTML": "<p id=\"P_1\" class=\"\">new Pragraph Element id = P_1</p><p id=\"P_2\" class=\"\" dir=\"rtl\">new Pragraph Element id = P_2</p><p id=\"P_3\" class=\"\">new Pragraph Element id = P_3</p><p id=\"P_4\" class=\"\" contenteditable=\"true\">new Pragraph Eladssasd</p><p id=\"P_5\" class=\"\" title=\"hii\" style=\"\">new Pragraph Element id = P_5</p><p id=\"p_4\" class=\"\" style=\"\" dir=\"\">new p Element id = p_4</p><p id=\"P_6\" class=\"\">new Pragraph Element id = P_6</p><p id=\"P_7\" class=\"\">new Pragraph Element id = P_7</p><p id=\"P_8\" class=\"\">new Pragraph Element id = P_8</p><p id=\"p_1\" class=\"\">new p Element id = p_1</p><div id=\"div_1\" class=\"\">new div Element id = div_1<p id=\"p_2\" class=\"\">new p Element id = p_2</p></div><div id=\"div_2\">new div Element id = div_2</div><div id=\"div_3\" class=\"\">new div Element id = div_3<p id=\"p_3\" class=\"\">new p Element id = p_3</p></div>",
       "id": 1
     }
   ],
@@ -22,6 +22,18 @@
         },
         {
           "cssText": "#P_8 { color: pink; }"
+        },
+        {
+          "cssText": "#P_2 { color: red; }"
+        },
+        {
+          "cssText": "#P_5 { color: red; }"
+        },
+        {
+          "cssText": "#P_3 { text-align: center; }"
+        },
+        {
+          "cssText": "#P_1 { text-align: justify; }"
         }
       ],
       "id": 1

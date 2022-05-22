@@ -15,6 +15,9 @@ We save div#web-preview.innerHTML in USER_data.json
 
 export async function jsonServer_saveData() {
 
+    // remove selected and selected_hard style first. we don't app class saved in user data.
+    let allElements = document.querySelectorAll("*"); allElements.forEach(element => { element.classList.remove("selected"); element.classList.remove("selected_hard"); })
+
 
     const uriHTMLtags = 'http://localhost:3000/HTMLtags/1';
     const webPreview = document.getElementById('web-preview');
