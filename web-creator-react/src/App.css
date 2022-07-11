@@ -10,7 +10,24 @@ body,
     padding: 20px;
 }
 
-#USER_document_iframe {
+#InformationTab {
+    padding: 10px 0px;
+}
+
+#USERdocumentIframe {
     height: 100%;
     width: 100%;
+}
+
+.InformationTab_buttonsDiv_button {
+    all: unset;
+}
+
+#InformationTab_HTML_Buttons {
+
+    display: flex;
+    justify-content: flex-start;
+    column-gap: 10px;
+
+    margin: 15px 0px;
 }
